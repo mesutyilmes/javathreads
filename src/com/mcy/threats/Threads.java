@@ -23,7 +23,16 @@ class MyTask extends CA implements Runnable{
 	}
 }
 
-
+class YourTask implements Runnable{
+	@Override
+	public void run()
+	{
+		for(int doc = 1;doc<=10;doc++)
+		{
+			System.out.println("**Printing Document #"+doc+" - Printer3");
+		}
+	}
+}
 public class Threads {
 
 	//main methods represents main thread
@@ -41,6 +50,8 @@ public class Threads {
 		Runnable r = new MyTask();
 		Thread task = new Thread(r);
 		task.start();
+		//task.setDaemon(true);
+		new Thread(new YourTask()).start();
 		
 		//Job3
 		for(int doc = 1;doc<=10;doc++)
